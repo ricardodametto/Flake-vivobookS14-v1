@@ -7,7 +7,7 @@
 { config, pkgs, pkgs-unstable, lib, ... }:
 
 {
-  # --- KDE Connect via Valent ---
+  # --- KDE Connect via Valent para copy paste entre vm KDE Plasma e o host---
   programs.kdeconnect = {
     enable  = true;
     package = pkgs-unstable.valent;
@@ -18,7 +18,9 @@
     vscodium
     vscode
     google-chrome
-
+    firefox
+    brave
+    chromium
     # --- Ferramentas ---
     podman-desktop
     virt-viewer

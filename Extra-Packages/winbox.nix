@@ -1,7 +1,7 @@
 # ==============================================================================
 # Extra-Packages/winbox.nix
-#
-# Derivation manual do WinBox 4 para Linux.
+# 
+# Derivation manual(inline) do WinBox 4 para Linux.
 #
 # Por que existe este arquivo:
 #   O pacote disponível no nixpkgs está desatualizado. Esta derivation

@@ -29,7 +29,7 @@
     ];
   };
 
-  nix.settings.trusted-users = [ "root" "ricardo" ];
+  nix.settings.trusted-users = [ "root" "ricardo" "wireshark" "qemu-libvirtd" "libvirtd" "kvm"];
 
   # ============================================================
   # Teclado / Locale / Console

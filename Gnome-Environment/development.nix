@@ -1,7 +1,7 @@
 # ==============================================================================
 # Gnome-Environment/development.nix
 #
-# Linguagens de programação e ferramentas de CLI para desenvolvimento.
+# Linguagens de programação, compiladorese ferramentas de CLI para desenvolvimento com agentes de IA.
 # ==============================================================================
 
 { config, pkgs, pkgs-unstable, lib, ... }:

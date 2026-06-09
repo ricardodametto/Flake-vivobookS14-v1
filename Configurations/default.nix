@@ -21,6 +21,14 @@
       ../User/user.nix
       ../Deploy/runner-self.nix
       ../Garbage-Collector/garbage.nix
+
+      # Gnome-Environment
+      ../gnome-essentials.nix
+      ../gnome-extensions.nix
+      ../pnetlab.nix
+      ../apps.nix
+      ../system-tools.nix
+      ../development.nix
       
 
 

@@ -34,6 +34,7 @@
     ptyxis
     kitty
     wl-clipboard
+    curl
     wget
     git
   ];
