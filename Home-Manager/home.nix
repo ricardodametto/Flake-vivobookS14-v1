@@ -55,7 +55,7 @@
 
   services.gpg-agent = {
     enable          = true;
-    pinentryPackage = pkgs.pinentry-gnome3;
+    pinentry.package = pkgs.pinentry-gnome3;
     defaultCacheTtl = 3600;  # 1h — passphrase cacheada por sessão
     maxCacheTtl     = 86400; # 24h — máximo antes de pedir de novo
   };
