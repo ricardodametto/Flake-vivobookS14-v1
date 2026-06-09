@@ -11,7 +11,6 @@
      ../Kernel-space/container.nix 
      ../Kernel-space/kvm-details.nix
 
-      ../Gnome-Environment/gnome-system.nix
      
       ../Extra-Packages/winbox.nix
       ../Extra-Packages/nvim.nix
@@ -23,17 +22,11 @@
       ../Garbage-Collector/garbage.nix
 
       # Gnome-Environment
-      ../gnome-essentials.nix
-      ../gnome-extensions.nix
-      ../pnetlab.nix
-      ../apps.nix
-      ../system-tools.nix
-      ../development.nix
-      
-
-
-    
-
-
+      ../Gnome-Environment/gnome-essentials.nix
+      ../Gnome-Environment/gnome-extensions.nix
+      ../Gnome-Environment/pnetlab.nix
+      ../Gnome-Environment/apps.nix
+      ../Gnome-Environment/system-tools.nix
+      ../Gnome-Environment/development.nix
   ];
 }
