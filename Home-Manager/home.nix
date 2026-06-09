@@ -38,6 +38,33 @@
     };
   };
 
+
+  # ============================================================
+  # GPG + Password Store
+  #
+  # pass: gerenciador de secrets criptografados com GPG.
+  # Uso: pass insert deepseek/api-key → armazena criptografado
+  #      pass show deepseek/api-key   → descriptografa on-demand
+  # Integra com direnv via: export VAR=$(pass show caminho/key)
+  #
+  # gpg-agent: cacheia a passphrase da chave GPG por 1h,
+  # evitando prompt repetido a cada uso do direnv.
+  # pinentry-gnome3: janela gráfica GTK para solicitar passphrase.
+  # ============================================================
+  programs.gpg.enable = true;
+
+  services.gpg-agent = {
+    enable          = true;
+    pinentryPackage = pkgs.pinentry-gnome3;
+    defaultCacheTtl = 3600;  # 1h — passphrase cacheada por sessão
+    maxCacheTtl     = 86400; # 24h — máximo antes de pedir de novo
+  };
+
+  programs.password-store = {
+    enable  = true;
+    package = pkgs.pass;
+  };
+
   # ============================================================
   # ZSH — configuração do usuário
   #
