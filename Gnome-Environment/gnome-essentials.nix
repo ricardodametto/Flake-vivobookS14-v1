@@ -15,6 +15,9 @@
   # --- Shell (zsh) ---
   programs.zsh.enable = true;
   
+  # --- Shell (fish) ---
+  programs.fish.enable = true;
+
   # --- direnv + nix-direnv ---
   programs.direnv = {
     enable = true;
@@ -31,8 +34,12 @@
     gnome-software
     gnome-extension-manager
     gedit
+    
+    #emulador de terminal alternativo, mais leve e customizável que o gnome-terminal. O cool-retro-term é um terminal com visual retrô inspirado nos terminais antigos, oferecendo uma experiência nostálgica e personalizável para os usuários que apreciam um estilo vintage em suas sessões de terminal.
+    cool-retro-term
     ptyxis
     kitty
+    
     wl-clipboard
     curl
     wget

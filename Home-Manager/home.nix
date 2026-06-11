@@ -23,18 +23,23 @@
   home.packages = with pkgs; [
     # Fonte Meslo com Nerd Glyphs — necessária para o Powerlevel10k
     meslo-lgs-nf
+    fzf
   ];
 
   # Necessário para o Home Manager registrar as fontes no fontconfig do usuário
   fonts.fontconfig.enable = true;
 
-  # ============================================================
-  # Tema GTK / Ícones
-  # ============================================================
-  gtk = {
-    iconTheme = {
-      name    = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+  # Configurações do GNOME via dconf comando dconf dump /org/gnome/desktop/interface/ e dconf dump /org/gnome/shell/
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "default";
+      gtk-theme = "Orchis-Light";
+      icon-theme = "Papirus";
+      cursor-theme = "Bibata-Modern-Ice";
+    };
+
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "Orchis-Light";
     };
   };
 
@@ -110,5 +115,95 @@
   # Bash habilitado para compatibilidade com scripts de sistema
   programs.bash.enable = true;
 
-  home.stateVersion = "26.05";
+  # ============================================================
+  # Starship — presets disponíveis para alternância
+  #
+  # Os toml ficam em ~/.config/starship/
+  # Alterna com a função fish: starship-theme <nome>
+  # ============================================================
+        
+  home.file = {
+    ".config/starship/tokyo-night.toml".source      = ./kitty-custom/starship/tokyo-night.toml;
+    ".config/starship/pastel-powerline.toml".source = ./kitty-custom/starship/pastel-powerline.toml;
+    ".config/starship/gruvbox-rainbow.toml".source  = ./kitty-custom/starship/gruvbox-rainbow.toml;
+    ".config/starship/jetpack.toml".source          = ./kitty-custom/starship/jetpack.toml;
+    ".config/starship/pure-preset.toml".source      = ./kitty-custom/starship/pure-preset.toml;
+  };
+
+  # ============================================================
+  # Fish — shell exclusivo do Kitty com Starship
+  #
+  # Autosuggestion e syntax highlighting são nativos do fish.
+  # Plugins adicionais via fishPlugins:
+  #   • autopair       — fecha parênteses, aspas, colchetes
+  #   • fzf-fish       — busca no histórico com Ctrl+R
+  #   • abbr-tips      — lembra atalhos git quando digitas o comando longo
+  # ============================================================
+  programs.fish = {
+    enable = true;
+
+    plugins = [
+      { name = "autopair";            src = pkgs.fishPlugins.autopair; }
+      { name = "fzf-fish";            src = pkgs.fishPlugins.fzf-fish; }
+      { name = "plugin-git";          src = pkgs.fishPlugins.plugin-git; }
+      { name = "fish-you-should-use"; src = pkgs.fishPlugins.fish-you-should-use; }
+      { name = "sponge";              src = pkgs.fishPlugins.sponge; }
+      { name = "colored-man-pages";   src = pkgs.fishPlugins.colored-man-pages; }
+      { name = "z";                   src = pkgs.fishPlugins.z; }
+      { name = "forgit";              src = pkgs.fishPlugins.forgit; }
+    ];
+
+    interactiveShellInit = ''
+     set -g fish_greeting ""
+
+    if test -f ~/.cache/starship-active.toml
+      set -gx STARSHIP_CONFIG ~/.cache/starship-active.toml
+    else
+      set -gx STARSHIP_CONFIG (realpath ~/.config/starship/tokyo-night.toml)
+    end
+
+    starship init fish | source
+  '';
+
+    functions = {
+     starship-theme = ''
+      set -l presets tokyo-night pastel-powerline gruvbox-rainbow jetpack pure-preset
+       if test (count $argv) -eq 0
+        echo "Presets disponíveis:"
+        for p in $presets
+          echo "  $p"
+        end
+       return
+      end
+      set -l src ~/.config/starship/$argv[1].toml
+       if test -f $src
+       #rm -f ~/.cache/starship-active.toml
+        cp (realpath $src) ~/.cache/starship-active.toml
+        set -gx STARSHIP_CONFIG ~/.cache/starship-active.toml
+        echo "Tema '$argv[1]' aplicado."
+       else
+        echo "Preset '$argv[1]' não encontrado."
+      end
+    '';
+   };
+};
+
+ programs.starship = {
+    enable = true;
+    enableZshIntegration = false;
+ };
+
+ programs.kitty = {
+    enable = true;
+    themeFile = "Homebrew";  # Constant Perceptual Luminosity,  Cyberpunk neon, ENCON,H-PUX, Homebrew,Neowave,Wez,
+    settings = {
+      shell           = "${pkgs.fish}/bin/fish";
+      background_opacity = "0.92";  # transparência — 0.0 invisível, 1.0 opaco
+      blur_radius     = 5;          # blur do fundo (funciona com alguns compositors)
+    };
+};
+      
+      
+      home.stateVersion = "26.05";
+
 }

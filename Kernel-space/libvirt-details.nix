@@ -59,9 +59,6 @@
     libvirt-glib
     qemu_full
 
-    # UI alternativa
-    gnome-boxes
-
     # Looking Glass (compartilhamento de framebuffer GPU)
     looking-glass-client
   ];

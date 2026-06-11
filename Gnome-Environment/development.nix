@@ -11,7 +11,6 @@
     # --- Desenvolvimento ---
     python3
     gcc
-    openjdk25
     devenv
     claude-code
     gemini-cli

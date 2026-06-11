@@ -21,6 +21,7 @@
     firefox
     brave
     chromium
+    mpv
     # --- Ferramentas ---
     podman-desktop
     virt-viewer
