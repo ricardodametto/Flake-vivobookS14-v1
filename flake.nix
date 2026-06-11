@@ -2,16 +2,16 @@
   description = "Sistema NixOS + Home Manager do Ricardo — ASUS Vivobook S 14";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs.url = "https://github.com/NixOS/nixpkgs/archive/nixos-26.05.tar.gz";
     # Adicione esta linha abaixo para buscar os pacotes em tempo real:
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
     # adicionei o nvim como input, forma diferente de instalar!
     nvf = {
-      url = "github:notashelf/nvf";
+      url = "https://github.com/notashelf/nvf/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
   };
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };  
