@@ -19,6 +19,7 @@
       "networkmanager"  # gerenciar redes via NM
       "audio"           # ALSA/PipeWire direto
       "video"           # acesso a /dev/dri, /dev/fb
+      "render"
       "input"           # /dev/input/* (teclado, mouse)
       "disk"            # /dev/sd*, acesso a blocos
       "kvm"             # /dev/kvm
@@ -29,7 +30,7 @@
     ];
   };
 
-  nix.settings.trusted-users = [ "root" "ricardo" "wireshark" "qemu-libvirtd" "libvirtd" "kvm" "networkmanager" ];
+  nix.settings.trusted-users = [ "root" "ricardo" "wireshark" "qemu-libvirtd" "libvirtd" "kvm" "networkmanager" "video" "render" ];
 
   # ============================================================
   # Teclado / Locale / Console

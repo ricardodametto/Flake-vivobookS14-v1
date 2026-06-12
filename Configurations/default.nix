@@ -28,5 +28,7 @@
      ../Gnome-Environment/apps.nix
      ../Gnome-Environment/system-tools.nix
      ../Gnome-Environment/development.nix
+
+     ../Extra-Packages/ollama.nix
   ];
 }
