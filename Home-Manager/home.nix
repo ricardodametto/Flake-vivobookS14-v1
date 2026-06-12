@@ -188,12 +188,12 @@
    };
 };
 
- programs.starship = {
+  programs.starship = {
     enable = true;
     enableZshIntegration = false;
  };
 
- programs.kitty = {
+  programs.kitty = {
     enable = true;
     themeFile = "Homebrew";  # Constant Perceptual Luminosity,  Cyberpunk neon, ENCON,H-PUX, Homebrew,Neowave,Wez,
     settings = {
@@ -201,9 +201,6 @@
       background_opacity = "0.92";  # transparência — 0.0 invisível, 1.0 opaco
       blur_radius     = 5;          # blur do fundo (funciona com alguns compositors)
     };
-};
-      
-      
-      home.stateVersion = "26.05";
-
+  };
+  home.stateVersion = "26.05";
 }
