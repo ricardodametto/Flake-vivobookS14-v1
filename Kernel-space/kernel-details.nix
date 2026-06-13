@@ -156,6 +156,9 @@
       libvdpau-va-gl          # VDPAU → VAAPI bridge
       vpl-gpu-rt              # Intel VPL (codec acelerado)
       intel-compute-runtime   # OpenCL (IA / edição de vídeo)
+      vulkan-loader          # Loader universal do Vulkan
+      vulkan-validation-layers
+    
     ];
   };
 

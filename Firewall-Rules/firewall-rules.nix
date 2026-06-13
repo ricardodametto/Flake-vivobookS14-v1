@@ -41,7 +41,7 @@
 
       # UDP — WireGuard (51820), custom (5678), Winbox discovery (20561),
       #        SPICE (7534), WireGuard alt (13231), KDE Connect (37179)
-      allowedUDPPorts = [ 51820 5678 20561 7534 13231 37179 11434 ];
+      allowedUDPPorts = [ 51820 5678 20561 7534 13231 37179 11434 ]; # Ollama API (11434)
 
       # Necessário para WireGuard e rotas assimétricas (Winbox/Lab)
       checkReversePath = false;
