@@ -44,14 +44,18 @@
         ]
       },
       "locked": {
-        "lastModified": 1781184346,
-        "narHash": "sha256-cZRlW47U6A2nWvAmnZeeO6Xvq23gxYbVLel4KxqOrcQ=",
-        "type": "tarball",
-        "url": "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz"
+        "lastModified": 1781319724,
+        "narHash": "sha256-ZGuxexEMo4Xv28KJ0dX/m/PHN4oZIOnxHZpNTyrvx4M=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "8355f0a16b2dbb06a97959a918af5b239bbe05ae",
+        "type": "github"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz"
+        "owner": "nix-community",
+        "ref": "release-26.05",
+        "repo": "home-manager",
+        "type": "github"
       }
     },
     "mnw": {
@@ -95,24 +99,32 @@
       "locked": {
         "lastModified": 1780902259,
         "narHash": "sha256-q8yYEC5f1mFlQO9RGna4LTc9QrcvWunX6FYp83munkQ=",
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/nixos-26.05.tar.gz"
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "bd0ff2d3eac24699c3664d5966b9ef36f388e2ca",
+        "type": "github"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/nixos-26.05.tar.gz"
+        "owner": "NixOS",
+        "ref": "nixos-26.05",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1780749050,
-        "narHash": "sha256-3av0pIjlOWQ6rDbNOmpUSvbNnJkGORQKKjb4LtCZsIY=",
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz"
+        "lastModified": 1781074563,
+        "narHash": "sha256-md8WlXOlfnIeHeOScMTTHFyf2d6iaTwPl2apR5EQ3P4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9ae611a455b90cf061d8f332b977e387bda8e1ca",
+        "type": "github"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz"
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nvf": {
@@ -127,14 +139,17 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1781267807,
-        "narHash": "sha256-DfC1xwUxnGvfXh2pdN5/ozXfbQFSWWZQ4BYgusUnkDM=",
-        "type": "tarball",
-        "url": "https://github.com/notashelf/nvf/archive/main.tar.gz"
+        "lastModified": 1781348802,
+        "narHash": "sha256-XUHOqeWwU9CbUhNKBoA/Vjm5wIcpB2cF7Ll1eQrGtts=",
+        "owner": "notashelf",
+        "repo": "nvf",
+        "rev": "40c37ff2f79089f1cc8fcd35d3c837e2401521cf",
+        "type": "github"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://github.com/notashelf/nvf/archive/main.tar.gz"
+        "owner": "notashelf",
+        "repo": "nvf",
+        "type": "github"
       }
     },
     "root": {
