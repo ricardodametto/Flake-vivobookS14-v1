@@ -106,6 +106,24 @@
       # Carrega a configuração do Powerlevel10k (prompt instantâneo)
       [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
+      claude-zai() {
+          ANTHROPIC_BASE_URL=https://api.z.ai/api/anthropic \
+          ANTHROPIC_AUTH_TOKEN=$(pass show zai/api-key) \
+          API_TIMEOUT_MS=3000000 \
+          ANTHROPIC_MODEL=glm-5.2 \
+          ANTHROPIC_SMALL_FAST_MODEL=glm-4.7 \
+          claude "$@"
+      }
+
+      claude-local() {
+          ANTHROPIC_AUTH_TOKEN=ollama \
+          ANTHROPIC_BASE_URL=http://localhost:11434 \
+          ANTHROPIC_API_KEY="" \
+          ANTHROPIC_MODEL=glm-4.7-flash \
+          ANTHROPIC_SMALL_FAST_MODEL=glm-4.7-flash \
+          claude "$@"
+      }
+
       # Nota: o hook do direnv NÃO é inicializado aqui.
       # O módulo NixOS (programs.direnv.enableZshIntegration = true)
       # já injeta o eval "$(direnv hook zsh)" automaticamente no .zshrc.
@@ -166,6 +184,30 @@
   '';
 
     functions = {
+     
+     claude-zai = ''
+      set -lx ANTHROPIC_BASE_URL https://api.z.ai/api/anthropic
+      set -lx ANTHROPIC_AUTH_TOKEN (pass show zai/api-key)
+      set -lx API_TIMEOUT_MS 3000000
+      set -lx ANTHROPIC_MODEL glm-5.2
+      set -lx ANTHROPIC_SMALL_FAST_MODEL glm-4.7
+      claude $argv
+     '';
+     claude-local = ''
+      set -lx ANTHROPIC_AUTH_TOKEN ollama
+      set -lx ANTHROPIC_BASE_URL http://localhost:11434
+      set -lx ANTHROPIC_API_KEY ""
+      if test (count $argv) -eq 0
+        echo "Uso: claude-local <modelo> [args...]"
+        echo "Modelos disponíveis:"
+        ollama list
+        return 1
+      end
+      set -lx ANTHROPIC_MODEL $argv[1]
+      set -lx ANTHROPIC_SMALL_FAST_MODEL $argv[1]
+      claude $argv[2..]
+     '';
+     
      starship-theme = ''
       set -l presets tokyo-night pastel-powerline gruvbox-rainbow jetpack pure-preset
        if test (count $argv) -eq 0
