@@ -32,7 +32,7 @@
   # ============================================================
   # nixpkgs 26.05 já inclui o 7.x; fallback para `latest` se o slot
   # específico não estiver disponível ainda.
-  boot.kernelPackages = pkgs.linuxPackages_7_0 or pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_7_1 or pkgs.linuxPackages_latest;
 
   # ============================================================
   # Parâmetros de kernel — consolidados (configuration + virtualization)
