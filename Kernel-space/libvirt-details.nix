@@ -57,7 +57,7 @@
     seabios
     swtpm
     libvirt-glib
-    qemu_full
+    #qemu_full
 
     # Looking Glass (compartilhamento de framebuffer GPU)
     looking-glass-client
