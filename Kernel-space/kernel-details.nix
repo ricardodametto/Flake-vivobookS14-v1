@@ -189,6 +189,7 @@
   # O firmware do RTL8852BE está coberto por `enableRedistributableFirmware`.
   networking.networkmanager.enable = true;
   networking.wireless.enable       = true;   # NM gerencia o Wi-Fi
+  networking.networkmanager.wifi.powersave = false;
   # Para alternar para iwd descomente:
   # networking.wireless.enable            = lib.mkForce false;
   # networking.networkmanager.wifi.backend = "iwd";
