@@ -25,13 +25,6 @@
       package    = pkgs-unstable.qemu_kvm;
       runAsRoot  = true;
       swtpm.enable = true;
-    # OVMF com Secure Boot — registra os descritores de firmware que o
-      # libvirt usa na autosseleção (firmware='efi' / --boot uefi).
-      # edk2 em systemPackages NÃO faz isso; é esta opção que conta.
-      ovmf = {
-        enable   = true;
-        packages = [ pkgs-unstable.OVMFFull.fd ];
-      };
     };
   };
 
