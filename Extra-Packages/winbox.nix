@@ -21,11 +21,11 @@
 let
   winbox = pkgs.stdenv.mkDerivation rec {
     pname   = "winbox";
-    version = "4.1";
+    version = "4.4";
 
     src = pkgs.fetchzip {
       url    = "https://download.mikrotik.com/routeros/winbox/${version}/WinBox_Linux.zip";
-      sha256 = "sha256-GmHfnN2gfEPI54RAI60rCGSFCSbolvGQ/csIfNL5Ceo=";
+      sha256 = "sha256-me04KXXFM+3JSSj6wnRB7lVDJB9uJ3hSAkBGRyUD3XY=";
       stripRoot = false;
     };
 
